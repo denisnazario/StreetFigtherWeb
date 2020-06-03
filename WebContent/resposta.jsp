@@ -1,3 +1,6 @@
+<%@page import="dominio.Personagem"%>
+<%@page import="dominio.Magia"%>
+<%@page import="dominio.Golpe"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,6 +10,12 @@
 		<title>Personagem Cadastrado</title>
 	</head>
 	<body>
+		<%
+		Golpe golpe = (Golpe)request.getAttribute("Golpe");
+		Magia magia = (Magia)request.getAttribute("Magia");
+		Personagem personagem = (Personagem)request.getAttribute("Personagem");
+		%>
+	
 		<h1>Personagem Cadastrado</h1>
 		
 		<p>Foi cadastrado com sucesso o seguinte personagem</p>
@@ -16,9 +25,9 @@
 			<legend>Personagem</legend>
 			
 			<p>
-				Nome: <%=request.getParameter("nome") %><br>
-				Sexo: <%=request.getParameter("sexo") %><br>
-				Pais: <%=request.getParameter("pais") %><br>
+				Nome: <%=personagem.getNome() %><br>
+				Sexo: <%=personagem.getSexo() %><br>
+				Pais: <%=personagem.getPais() %><br>
 			</p>
 		</fieldset>
 		
@@ -27,10 +36,10 @@
 			<legend>Golpe</legend>
 			
 			<p>
-				Soco Forte: <%=request.getParameter("socoForte") %><br>
-				Soco Fraco: <%=request.getParameter("socoFraco") %><br>
-				Chute Forte: <%=request.getParameter("chuteForte") %><br>
-				Chute Fraco: <%=request.getParameter("chuteFraco") %><br>
+				Soco Forte: <%=golpe.getSocoForte() %><br>
+				Soco Fraco: <%=golpe.getSocoFraco() %><br>
+				Chute Forte: <%=golpe.getChuteForte() %><br>
+				Chute Fraco: <%=golpe.getChuteFraco() %><br>
 			</p>
 		</fieldset>
 		
@@ -39,9 +48,9 @@
 			<legend>Magia</legend>
 			
 			<p>
-				Nome: <%=request.getParameter("nomeMagia") %><br>
-				Descrição: <%=request.getParameter("descricao") %><br>
-				Potência: <%=request.getParameter("potencia") %><br>
+				Nome: <%=magia.getNome() %><br>
+				Descrição: <%=magia.getDescricao() %><br>
+				Potência: <%=magia.getPotencia() %><br>
 			</p>
 		</fieldset>
 	</body>
